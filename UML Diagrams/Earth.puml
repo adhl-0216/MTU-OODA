@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+
+class Human {
+    -String name;
+    -Date doB;
+    -Double heightInInches;
+    -String eyeColour;
+
+    +void speak()
+    +void eat()
+    +void walk()
+}
+
+
+
+@enduml
