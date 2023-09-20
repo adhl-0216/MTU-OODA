@@ -1,27 +1,29 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+skinparam classAttributeIconSize 0
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class Manager {
+    - {static} String manID
+    - String sName
+    - String fName
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class Staff {
+    - {static} staffID
+    - String sName
+    - String fName
+    - String telNo
 }
+
+class Branch {
+    - {static} String bNo
+    - String fName
+    - String telNo
+}
+
+Staff <-- Manager : is A
+Staff "1...*" --o Branch : allocated
+Manager --o "1...3" Branch : manages
 
 @enduml

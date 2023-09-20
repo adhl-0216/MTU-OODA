@@ -4,19 +4,16 @@
 skinparam classAttributeIconSize 0
 
 class Dice {
-    -int sides
+    -int faceValue
 
     +int roll()
 }
 
 class Player {
-    - {}static} id
-    - Dice dice1
-    - Dice dice2
 
-    + isWinner()
+    + isWinner() : Boolean
 }
 
-Player "1..2"*-- Dice
+Player *--"2" Dice : requires
 
 @enduml
