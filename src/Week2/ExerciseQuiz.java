@@ -1,3 +1,5 @@
+package Week2;
+
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -8,8 +10,8 @@ public class ExerciseQuiz {
         private String answer;
 
         public Question(String text, String answer) {
-            this.text = text;
-            this.answer = answer;
+            setText(text);
+            setAnswer(answer);
         }
 
         public void display(){
