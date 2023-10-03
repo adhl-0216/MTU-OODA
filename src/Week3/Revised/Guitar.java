@@ -11,7 +11,10 @@ public class Guitar {
         this.serialNumber = serialNumber;
         this.price = price;
         setGuitarSpec(new GuitarSpec(builder, model, type, backWood, topWood));
+    }
 
+    public boolean specMatches(GuitarSpec searchSpec) {
+        return getGuitarSpec().matches(searchSpec);
     }
 
     public Object getSerialNumber() {

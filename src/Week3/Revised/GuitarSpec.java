@@ -1,5 +1,8 @@
 package Week3.Revised;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class GuitarSpec {
     private Builder builder;
     private String model;
@@ -27,6 +30,33 @@ public class GuitarSpec {
                 ", backWood=" + backWood +
                 ", topWood=" + topWood +
                 '}';
+    }
+
+    public boolean matches(GuitarSpec searchSpec) {
+
+            //ignore serialNumber since it is unique
+            //ignore price since it is irrelevant
+
+            if (this.getBuilder().equals(searchSpec.getBuilder())){
+                return true;
+            }
+
+            else if (this.getModel().equalsIgnoreCase(searchSpec.getModel()))
+            {
+                return true;
+            }
+
+            else if (this.getType().equals(searchSpec.getType()))
+            {
+                return true;
+            }
+
+            else if (this.getBackWood().equals(searchSpec.getBackWood()))
+            {
+                return true;
+            }
+
+            else return this.getTopWood().equals(searchSpec.getTopWood());
     }
 
     public Builder getBuilder() {
