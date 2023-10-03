@@ -1,22 +1,39 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-
-
-
+skinparam classAttributeIconSize 0
 
 class Guitar {
-- SerialNumber: String
+- serialNumber: String
+- price : double
+- builder : Builder
+- model : String
+- type : Type
+- backWood : Wood
+- topWood : Wood
+
 
 }
 Class Inventory{
 }
 Inventory o-- Guitar
+
+enum Type{
+    ELECTRIC
+    ACOUSTIC
+}
+
+enum Wood{
+    CEDAR
+    ALDER
+    MAHOGANY
+}
+
 enum Builder{
-FENDER
-COLLINS
-WILSON
-YAMAHA
+    FENDER
+    COLLINS
+    WILSON
+    YAMAHA
 }
 
 @enduml

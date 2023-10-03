@@ -1,7 +1,8 @@
 package Week3.Revised;
 
-import java.util.Iterator;
+
 import java.util.List;
+import java.util.Scanner;
 
 public class FindGuitarTester {
 
@@ -9,19 +10,30 @@ public class FindGuitarTester {
         Inventory inventory = new Inventory();
         initialiseInventory(inventory);
 
-        //what customer is looking for
-        Guitar whatLookingFor = new Guitar("", 0, Builder.FENDER, "Stratocastor",
-                Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Which builder are you looking for?");
+        String builder = scanner.nextLine();
+//        what customer is looking for
+        GuitarSpec whatLookingFor = new GuitarSpec();
+         switch (builder.toLowerCase()) {
+            case "fender" -> whatLookingFor.setBuilder(Builder.FENDER);
+            case "gibson" -> whatLookingFor.setBuilder(Builder.GIBSON);
+            case "collins" -> whatLookingFor.setBuilder(Builder.COLLINS);
+            case "yamaha" -> whatLookingFor.setBuilder(Builder.YAMAHA);
+        };
 
-        List matchingGuitars = inventory.search(whatLookingFor);
+
+        List<Guitar> matchingGuitars = inventory.search(whatLookingFor);
 
         if (!matchingGuitars.isEmpty()){
             System.out.println("You might like these: ");
 
-            for(Iterator i = matchingGuitars.iterator(); i.hasNext(); ){
-                Guitar guitar = (Guitar)i.next();
-                System.out.println("We have a " + guitar.getBuilder() +
-                        " " + guitar.getModel() + " " + guitar.getType() + " guitar: " +
+            for (Guitar guitar : matchingGuitars) {
+                GuitarSpec guitarSpec = guitar.getGuitarSpec();
+                System.out.printf("We have a %s %s %s guitar:  %s%n",
+                        guitarSpec.getBuilder(),
+                        guitarSpec.getModel(),
+                        guitarSpec.getType(),
                         guitar.getPrice());
             }
         }
@@ -39,7 +51,8 @@ public class FindGuitarTester {
                 "Stratocastor",
                 Type.ELECTRIC,
                 Wood.ALDER,
-                Wood.ALDER);
+                Wood.ALDER
+        );
 
         inventory.addGuitar("V00002",
                 1699.99,
@@ -47,7 +60,8 @@ public class FindGuitarTester {
                 "Stratocastor",
                 Type.ACOUSTIC,
                 Wood.ALDER,
-                Wood.ALDER);
+                Wood.ALDER
+        );
 
         inventory.addGuitar("V00003",
                 799.99,
@@ -55,7 +69,26 @@ public class FindGuitarTester {
                 "Stratocastor",
                 Type.ELECTRIC,
                 Wood.ALDER,
-                Wood.ALDER);
+                Wood.ALDER
+        );
+
+        inventory.addGuitar("V00004",
+                999.99,
+                Builder.GIBSON ,
+                "Stratocastor",
+                Type.ACOUSTIC,
+                Wood.CEDAR,
+                Wood.CEDAR
+        );
+
+        inventory.addGuitar("V00005",
+                1099.99,
+                Builder.YAMAHA ,
+                "Stratocastor",
+                Type.ACOUSTIC,
+                Wood.CEDAR,
+                Wood.CEDAR
+        );
 
     }
 }

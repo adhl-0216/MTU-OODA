@@ -1,23 +1,16 @@
 package Week3.Revised;
 
 public class Guitar {
-    private String serialNumber;
-    private double price;
-    private Builder builder;
-    private String model;
-    private Type type;
-    private Wood backWood;
-    private Wood topWood;
+    private final String serialNumber;
+    private final double price;
+    private GuitarSpec guitarSpec;
+
 
     public Guitar(String serialNumber, double price, Builder builder, String model,
                   Type type, Wood backWood, Wood topWood) {
         this.serialNumber = serialNumber;
         this.price = price;
-        this.builder = builder;
-        this.model = model;
-        this.type = type;
-        this.backWood = backWood;
-        this.topWood = topWood;
+        setGuitarSpec(new GuitarSpec(builder, model, type, backWood, topWood));
 
     }
 
@@ -25,24 +18,12 @@ public class Guitar {
         return serialNumber;
     }
 
-    public Builder getBuilder() {
-        return builder;
+    public GuitarSpec getGuitarSpec() {
+        return guitarSpec;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public Wood  getBackwood() {
-        return backWood;
-    }
-
-    public Wood  getTopwood() {
-        return topWood;
+    public void setGuitarSpec(GuitarSpec guitarSpec) {
+        this.guitarSpec = guitarSpec;
     }
 
     public double getPrice() {
