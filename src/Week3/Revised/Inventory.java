@@ -10,8 +10,8 @@ public class Inventory {
     }
 
     public void addGuitar(String serialNumber, double price, Builder builder, String model,
-                          Type type, Wood backWood, Wood topWood){
-        Guitar guitar = new Guitar(serialNumber,price,builder,model,type,backWood,topWood);
+                          Type type, NumString numString, Wood backWood, Wood topWood){
+        Guitar guitar = new Guitar(serialNumber,price,builder,model,type, numString, backWood,topWood);
         guitars.add(guitar);
     }
 

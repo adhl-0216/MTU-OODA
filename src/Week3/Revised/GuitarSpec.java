@@ -1,35 +1,23 @@
 package Week3.Revised;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class GuitarSpec {
     private Builder builder;
     private String model;
     private Type type;
+    private NumString numString;
     private Wood backWood;
     private Wood topWood;
 
     public GuitarSpec() {
     }
 
-    public GuitarSpec(Builder builder, String model, Type type, Wood backWood, Wood topWood) {
+    public GuitarSpec(Builder builder, String model, Type type, NumString numString, Wood backWood, Wood topWood) {
         this.builder = builder;
         this.model = model;
         this.type = type;
+        this.numString = numString;
         this.backWood = backWood;
         this.topWood = topWood;
-    }
-
-    @Override
-    public String toString() {
-        return "GuitarSpec{" +
-                "builder=" + builder +
-                ", model='" + model + '\'' +
-                ", type=" + type +
-                ", backWood=" + backWood +
-                ", topWood=" + topWood +
-                '}';
     }
 
     public boolean matches(GuitarSpec searchSpec) {
@@ -47,6 +35,11 @@ public class GuitarSpec {
             }
 
             else if (this.getType().equals(searchSpec.getType()))
+            {
+                return true;
+            }
+
+            else if (this.getNumString().equals(searchSpec.getNumString()))
             {
                 return true;
             }
@@ -81,6 +74,14 @@ public class GuitarSpec {
 
     public void setType(Type type) {
         this.type = type;
+    }
+
+    public NumString getNumString() {
+        return numString;
+    }
+
+    public void setNumString(NumString numString) {
+        this.numString = numString;
     }
 
     public Wood getBackWood() {

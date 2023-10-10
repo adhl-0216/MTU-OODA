@@ -7,10 +7,10 @@ public class Guitar {
 
 
     public Guitar(String serialNumber, double price, Builder builder, String model,
-                  Type type, Wood backWood, Wood topWood) {
+                  Type type, NumString numString, Wood backWood, Wood topWood) {
         this.serialNumber = serialNumber;
         this.price = price;
-        setGuitarSpec(new GuitarSpec(builder, model, type, backWood, topWood));
+        setGuitarSpec(new GuitarSpec(builder, model, type, numString, backWood, topWood));
     }
 
     public boolean specMatches(GuitarSpec searchSpec) {

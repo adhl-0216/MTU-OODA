@@ -11,7 +11,7 @@ public class FindGuitarTester {
         initialiseInventory(inventory);
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Search by guitar specifications:\n1.Builder\n2.Model\n3.Type\n4.Back Wood\n5.Top Wood");
+        System.out.println("Search by guitar specifications:\n1.Builder\n2.Model\n3.Type\n4.Number of String\n5.Back Wood\n6.Top Wood");
         String category = scanner.nextLine();
 
         //        what customer is looking for
@@ -26,12 +26,14 @@ public class FindGuitarTester {
                 case "yamaha" -> whatLookingFor.setBuilder(Builder.YAMAHA);
             }
 
-        } else if (category.equalsIgnoreCase("Model") || category.equals("2")) {
+        }
+        else if (category.equalsIgnoreCase("Model") || category.equals("2")) {
             System.out.println("Which model are you looking for?");
             String model = scanner.nextLine();
             whatLookingFor.setModel(model);
 
-        }else if (category.equalsIgnoreCase("Type") || category.equals("3")) {
+        }
+        else if (category.equalsIgnoreCase("Type") || category.equals("3")) {
             System.out.println("Which type are you looking for?");
             String type = scanner.nextLine();
             switch (type.toLowerCase()) {
@@ -39,7 +41,17 @@ public class FindGuitarTester {
                 case "acoustic" -> whatLookingFor.setType(Type.ACOUSTIC);
             }
 
-        }else if (category.equalsIgnoreCase("Back Wood") || category.equals("4")) {
+        }
+        else if (category.equalsIgnoreCase("Number of String") || category.equals("4")) {
+            System.out.println("What is the number of strings that you are looking for?");
+            String numString = scanner.nextLine();
+            switch (numString.toLowerCase()) {
+                case "6", "six" -> whatLookingFor.setNumString(NumString.SIX);
+                case "12", "twelve" -> whatLookingFor.setNumString(NumString.TWELVE);
+            }
+
+        }
+        else if (category.equalsIgnoreCase("Back Wood") || category.equals("5")) {
             System.out.println("Which back wood are you looking for?");
             String backWood = scanner.nextLine();
             switch (backWood.toLowerCase()) {
@@ -48,7 +60,8 @@ public class FindGuitarTester {
                 case "mahogany" -> whatLookingFor.setBackWood(Wood.MAHOGANY);
             }
 
-        }else if (category.equalsIgnoreCase("Top Wood") || category.equals("5")) {
+        }
+        else if (category.equalsIgnoreCase("Top Wood") || category.equals("6")) {
             System.out.println("Which top wood are you looking for?");
             String topWood = scanner.nextLine();
             switch (topWood.toLowerCase()) {
@@ -89,6 +102,7 @@ public class FindGuitarTester {
                 Builder.FENDER ,
                 "Stratocastor",
                 Type.ELECTRIC,
+                NumString.SIX,
                 Wood.ALDER,
                 Wood.ALDER
         );
@@ -98,6 +112,7 @@ public class FindGuitarTester {
                 Builder.FENDER ,
                 "Stratocastor",
                 Type.ACOUSTIC,
+                NumString.SIX,
                 Wood.ALDER,
                 Wood.ALDER
         );
@@ -107,6 +122,7 @@ public class FindGuitarTester {
                 Builder.FENDER ,
                 "Stratocastor",
                 Type.ELECTRIC,
+                NumString.TWELVE,
                 Wood.ALDER,
                 Wood.ALDER
         );
@@ -116,6 +132,7 @@ public class FindGuitarTester {
                 Builder.GIBSON ,
                 "Stratocastor",
                 Type.ACOUSTIC,
+                NumString.SIX,
                 Wood.CEDAR,
                 Wood.CEDAR
         );
@@ -125,6 +142,7 @@ public class FindGuitarTester {
                 Builder.YAMAHA ,
                 "Stratocastor",
                 Type.ACOUSTIC,
+                NumString.SIX,
                 Wood.CEDAR,
                 Wood.CEDAR
         );
